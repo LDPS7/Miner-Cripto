@@ -171,14 +171,14 @@
 
         .phone-card:active { transform: scale(0.98); transition: transform 0.1s; }
 
-        /* Número do quadrado */
+        /* Número do quadrado - SIMPLIFICADO */
         .card-number {
             position: absolute; top: 14px; left: 16px;
-            font-family: 'Space Mono', monospace; font-size: 0.62rem;
+            font-family: 'Space Mono', monospace; font-size: 0.9rem;
             color: #00ff88; background: rgba(0,10,20,0.7);
             border: 1px solid rgba(0,255,136,0.5); border-radius: 8px;
             padding: 2px 8px; z-index: 3; pointer-events: none;
-            letter-spacing: 1px;
+            letter-spacing: 0px; font-weight: 700;
         }
 
         /* Safari fallback */
@@ -376,7 +376,7 @@
         <div class="mining-grid">
 
             <div class="phone-card">
-                <span class="card-number">01<1</span>
+                <span class="card-number">1</span>
                 <div class="phone-mock">
                     <div class="phone-notch"></div>
                     <div class="phone-screen">
@@ -392,7 +392,7 @@
             </div>
 
             <div class="phone-card">
-                <span class="card-number">02<2</span>
+                <span class="card-number">2</span>
                 <div class="phone-mock">
                     <div class="phone-notch"></div>
                     <div class="phone-screen">
@@ -408,7 +408,7 @@
             </div>
 
             <div class="phone-card">
-                <span class="card-number">03<3</span>
+                <span class="card-number">3</span>
                 <div class="phone-mock">
                     <div class="phone-notch"></div>
                     <div class="phone-screen">
@@ -424,7 +424,7 @@
             </div>
 
             <div class="phone-card">
-                <span class="card-number">04<4</span>
+                <span class="card-number">4</span>
                 <div class="phone-mock">
                     <div class="phone-notch"></div>
                     <div class="phone-screen">
@@ -440,7 +440,7 @@
             </div>
 
             <div class="phone-card">
-                <span class="card-number">05<5</span>
+                <span class="card-number">5</span>
                 <div class="phone-mock">
                     <div class="phone-notch"></div>
                     <div class="phone-screen">
@@ -456,7 +456,7 @@
             </div>
 
             <div class="phone-card">
-                <span class="card-number">06<6</span>
+                <span class="card-number">6</span>
                 <div class="phone-mock">
                     <div class="phone-notch"></div>
                     <div class="phone-screen">
@@ -472,7 +472,7 @@
             </div>
 
             <div class="phone-card">
-                <span class="card-number">07<7</span>
+                <span class="card-number">7</span>
                 <div class="phone-mock">
                     <div class="phone-notch"></div>
                     <div class="phone-screen">
@@ -488,7 +488,7 @@
             </div>
 
             <div class="phone-card">
-                <span class="card-number">08<8</span>
+                <span class="card-number">8</span>
                 <div class="phone-mock">
                     <div class="phone-notch"></div>
                     <div class="phone-screen">
@@ -504,7 +504,7 @@
             </div>
 
             <div class="phone-card">
-                <span class="card-number">09<9</span>
+                <span class="card-number">9</span>
                 <div class="phone-mock">
                     <div class="phone-notch"></div>
                     <div class="phone-screen">
@@ -886,7 +886,7 @@
             }
         });
 
-        // Touch
+        // Touch - CORRIGIDO: agora não trava mais o deslize
         document.addEventListener('touchmove',(e)=>{
             if(!e.touches[0]) return;
             const tx=e.touches[0].clientX,ty=e.touches[0].clientY;
@@ -894,8 +894,8 @@
             if(dist<3) return;
             lastMx=tx;lastMy=ty;
             spawnDots(tx,ty);
-            if(e.cancelable===true) e.preventDefault();
-        },{passive:false});
+            // NÃO chamamos mais e.preventDefault() para não travar o scroll
+        },{passive:true}); // passive:true permite o scroll
 
         document.addEventListener('touchend',()=>{ dots.length=0; });
         document.addEventListener('touchcancel',()=>{ dots.length=0; });
