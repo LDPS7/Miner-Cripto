@@ -52,58 +52,6 @@
             z-index: 1;
         }
 
-        /* CURSOR VERDE */
-        /* cursor padrão do sistema — bolinha removida */
-
-        /* LIVE BAR */
-        .live-bar {
-            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-            background: rgba(0,10,25,0.85);
-            border-bottom: 1px solid rgba(59,152,255,0.3);
-            display: flex; align-items: center; justify-content: center;
-            gap: 2rem; padding: 0.4rem 1rem;
-            font-family: 'Space Mono', monospace; font-size: 0.75rem;
-            color: var(--blue-light);
-            backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-        }
-
-        .live-dot {
-            width: 7px; height: 7px; background: #00ff88;
-            border-radius: 50%; display: inline-block; margin-right: 5px;
-            animation: pulse-dot 1.5s infinite;
-        }
-
-        @keyframes pulse-dot {
-            0%,100% { opacity:1; transform:scale(1); }
-            50% { opacity:0.4; transform:scale(0.8); }
-        }
-
-        .live-stat { display: flex; align-items: center; gap: 5px; }
-        .live-stat span { color: #00ff88; font-weight: 700; }
-
-        /* TOASTS */
-        .toast-container {
-            position: fixed; bottom: 1.5rem; left: 1rem;
-            z-index: 200; display: flex; flex-direction: column;
-            gap: 0.5rem; pointer-events: none;
-        }
-
-        .toast {
-            background: rgba(5,20,45,0.92);
-            border: 1px solid rgba(59,152,255,0.4); border-radius: 12px;
-            padding: 10px 14px; color: var(--blue-pale);
-            font-size: 0.8rem; display: flex; align-items: center; gap: 10px;
-            transform: translateX(-120%); opacity: 0;
-            transition: transform 0.4s ease, opacity 0.4s ease;
-            max-width: 260px;
-            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-        }
-
-        .toast.show { transform: translateX(0); opacity: 1; }
-        .toast-icon { font-size: 1.1rem; }
-        .toast-text strong { color: #00ff88; }
-
         /* TRACKER PANEL */
         .tracker-panel {
             position: fixed; top: 50%; right: 1rem; transform: translateY(-50%);
@@ -138,7 +86,7 @@
         .main-content {
             position: relative; z-index: 15; flex: 1;
             display: flex; flex-direction: column; align-items: center;
-            padding: 5rem 1rem 3rem; width: 100%;
+            padding: 2rem 1rem 3rem; width: 100%;
             max-width: 1400px; margin: 0 auto;
         }
 
@@ -171,7 +119,6 @@
 
         .phone-card:active { transform: scale(0.98); transition: transform 0.1s; }
 
-        /* Número do quadrado - SIMPLIFICADO */
         .card-number {
             position: absolute; top: 14px; left: 16px;
             font-family: 'Space Mono', monospace; font-size: 0.9rem;
@@ -181,7 +128,6 @@
             letter-spacing: 0px; font-weight: 700;
         }
 
-        /* Safari fallback */
         .phone-mock {
             width: 100%; background: rgba(8,25,45,0.75);
             border: 1.8px solid rgba(70,150,255,0.25); border-radius: 38px;
@@ -215,7 +161,6 @@
             align-items: center; gap: 10px;
         }
 
-        /* Imagem da mineradora */
         .miner-img {
             width: 88px; height: 88px; margin: 0 auto;
             border-radius: 20px; object-fit: cover;
@@ -244,13 +189,8 @@
             font-family: 'Rajdhani', sans-serif; text-transform: uppercase;
         }
 
-        .miner-sub {
-            font-size: 0.7rem; color: #9bbdf0;
-            text-transform: uppercase; letter-spacing: 2px; font-family: 'Space Mono', monospace;
-        }
-
         /* BOTÕES */
-        .btn-wrap { width: 100%; margin-top: 14px; display: flex; flex-direction: column; gap: 8px; }
+        .btn-wrap { width: 100%; margin-top: 14px; }
 
         .mining-btn {
             display: inline-block; width: 100%; padding: 14px 10px;
@@ -281,65 +221,15 @@
         .mining-btn:hover::before { left: 150%; }
         .mining-btn:active { transform: scale(0.98); background: rgba(0,70,150,0.9); }
 
-        .compare-btn {
-            display: inline-block; width: 100%; padding: 8px 10px;
-            background: transparent; border: 1px solid rgba(59,152,255,0.25);
-            border-radius: 60px; color: var(--blue-light); font-size: 0.78rem;
-            text-align: center; text-decoration: none; letter-spacing: 0.5px;
-            transition: all 0.2s; cursor: default; font-family: 'Space Mono', monospace;
-        }
-
-        @media (max-width: 680px) { .compare-btn { cursor: pointer; } }
-
-        .compare-btn:hover { background: rgba(59,152,255,0.1); border-color: rgba(59,152,255,0.5); }
-
         /* RESPONSIVE */
         @media (max-width: 680px) {
-            .main-content { padding: 4.5rem 0.8rem 2rem; }
+            .main-content { padding: 1.5rem 0.8rem 2rem; }
             .phone-card { flex: 0 1 300px; max-width: 300px; }
             .miner-img { width: 72px; height: 72px; }
             .miner-name { font-size: 1.4rem; }
-            .live-bar { font-size: 0.7rem; gap: 1rem; }
         }
 
         @media (max-width: 380px) { .phone-card { min-width: 240px; } }
-
-        /* MODAL */
-        #compareModal {
-            display: none; position: fixed; inset: 0; z-index: 300;
-            align-items: center; justify-content: center;
-            background: rgba(0,5,15,0.85);
-            backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
-        }
-
-        .modal-box {
-            background: rgba(5,20,50,0.97); border: 1px solid rgba(59,152,255,0.4);
-            border-radius: 24px; padding: 2rem; max-width: 340px;
-            width: 90%; position: relative;
-        }
-
-        .modal-close {
-            position: absolute; top: 12px; right: 16px;
-            background: none; border: none; color: #79c0ff;
-            font-size: 1.4rem; cursor: pointer;
-        }
-
-        .modal-title {
-            font-family: 'Space Mono', monospace; font-size: 0.65rem;
-            color: var(--blue-accent); letter-spacing: 2px;
-            text-transform: uppercase; margin-bottom: 1rem;
-        }
-
-        .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
-
-        .compare-cell {
-            background: rgba(59,152,255,0.1); border-radius: 10px;
-            padding: 0.7rem; text-align: center;
-        }
-
-        .compare-cell-label { font-size: 0.65rem; color: #9bbdf0; margin-bottom: 4px; }
-        .compare-cell-val { font-size: 1.3rem; color: #00ff88; font-weight: 700; }
-        .compare-cell-val.blue { color: #79c0ff; font-size: 1.1rem; }
     </style>
 </head>
 <body>
@@ -347,25 +237,9 @@
     <div class="bg-overlay"></div>
     <canvas id="particle-canvas"></canvas>
 
-    <div class="live-bar">
-        <div class="live-stat"><span class="live-dot"></span><span id="liveCount">—</span> minerando agora</div>
-        <div class="live-stat">💰 <span id="liveEarned">—</span> USDT sacados hoje</div>
-        <div class="live-stat">🔗 <span id="liveClicks">—</span> cliques hoje</div>
-    </div>
-
-    <div class="toast-container" id="toastContainer"></div>
-
     <div class="tracker-panel" id="trackerPanel">
         <div class="tracker-title">📊 Cliques</div>
         <div class="tracker-list" id="trackerList"></div>
-    </div>
-
-    <div id="compareModal">
-        <div class="modal-box">
-            <button class="modal-close" onclick="document.getElementById('compareModal').style.display='none'">✕</button>
-            <div class="modal-title">📊 Comparativo de Ganhos</div>
-            <div id="compareContent"></div>
-        </div>
     </div>
 
     <div class="main-content">
@@ -382,12 +256,10 @@
                     <div class="phone-screen">
                         <img class="miner-img" loading="lazy" decoding="async" src="https://earn-trx.com/favicon.ico" onerror="this.src='https://cdn.jsdelivr.net/gh/atomiclabs/cryptocurrency-icons@1a63530/128/color/trx.png'" alt="Earn TRX">
                         <div class="miner-name">Earn TRX</div>
-                        <div class="miner-sub">tron mining</div>
                     </div>
                 </div>
                 <div class="btn-wrap">
                     <a href="https://earn-trx.com/?r=TCYzLj1w5PNkzhLRRLntqmPZC5cp9oRe6p" class="mining-btn" target="_blank" rel="noopener" aria-label="Minerar em Earn TRX" onclick="trackClick('Earn TRX')">▶ minerar</a>
-                    <span class="compare-btn" onclick="showCompare('Earn TRX','12.4%','TRX','Alta')">📊 comparar ganhos</span>
                 </div>
             </div>
 
@@ -398,12 +270,10 @@
                     <div class="phone-screen">
                         <img class="miner-img" loading="lazy" decoding="async" src="https://pandausdt.club/favicon.ico" onerror="this.src='https://cdn.jsdelivr.net/gh/atomiclabs/cryptocurrency-icons@1a63530/128/color/usdt.png'" alt="Panda USDT">
                         <div class="miner-name">Panda USDT</div>
-                        <div class="miner-sub">stablecoin pool</div>
                     </div>
                 </div>
                 <div class="btn-wrap">
                     <a href="https://pandausdt.club/r/997928423" class="mining-btn" target="_blank" rel="noopener" aria-label="Minerar em Panda USDT" onclick="trackClick('Panda USDT')">▶ minerar</a>
-                    <span class="compare-btn" onclick="showCompare('Panda USDT','9.1%','USDT','Média')">📊 comparar ganhos</span>
                 </div>
             </div>
 
@@ -414,12 +284,10 @@
                     <div class="phone-screen">
                         <img class="miner-img" loading="lazy" decoding="async" src="https://usdtx.biz/favicon.ico" onerror="this.src='https://cdn.jsdelivr.net/gh/atomiclabs/cryptocurrency-icons@1a63530/128/color/usdt.png'" alt="USDTx">
                         <div class="miner-name">USDTx.biz</div>
-                        <div class="miner-sub">turbo mining</div>
                     </div>
                 </div>
                 <div class="btn-wrap">
                     <a href="https://usdtx.biz/r/638216101" class="mining-btn" target="_blank" rel="noopener" aria-label="Minerar em USDTx" onclick="trackClick('USDTx')">▶ minerar</a>
-                    <span class="compare-btn" onclick="showCompare('USDTx','8.5%','USDT','Alta')">📊 comparar ganhos</span>
                 </div>
             </div>
 
@@ -430,12 +298,10 @@
                     <div class="phone-screen">
                         <img class="miner-img" loading="lazy" decoding="async" src="https://nuggmi.com/favicon.ico" onerror="this.src='https://cdn.jsdelivr.net/gh/atomiclabs/cryptocurrency-icons@1a63530/128/color/btc.png'" alt="Nuggmi">
                         <div class="miner-name">Nuggmi</div>
-                        <div class="miner-sub">cloud miner</div>
                     </div>
                 </div>
                 <div class="btn-wrap">
                     <a href="https://nuggmi.com/ref/lucianoldps" class="mining-btn" target="_blank" rel="noopener" aria-label="Minerar em Nuggmi" onclick="trackClick('Nuggmi')">▶ minerar</a>
-                    <span class="compare-btn" onclick="showCompare('Nuggmi','6.2%','BTC','Baixa')">📊 comparar ganhos</span>
                 </div>
             </div>
 
@@ -446,12 +312,10 @@
                     <div class="phone-screen">
                         <img class="miner-img" loading="lazy" decoding="async" src="https://usdtclaim.fun/favicon.ico" onerror="this.src='https://cdn.jsdelivr.net/gh/atomiclabs/cryptocurrency-icons@1a63530/128/color/usdt.png'" alt="USDT Claim">
                         <div class="miner-name">USDT Claim</div>
-                        <div class="miner-sub">daily claim</div>
                     </div>
                 </div>
                 <div class="btn-wrap">
                     <a href="https://usdtclaim.fun/r/238340172" class="mining-btn" target="_blank" rel="noopener" aria-label="Minerar em USDT Claim" onclick="trackClick('USDT Claim')">▶ minerar</a>
-                    <span class="compare-btn" onclick="showCompare('USDT Claim','7.0%','USDT','Média')">📊 comparar ganhos</span>
                 </div>
             </div>
 
@@ -462,12 +326,10 @@
                     <div class="phone-screen">
                         <img class="miner-img" loading="lazy" decoding="async" src="https://pepehash.lovable.app/favicon.ico" onerror="this.src='https://cdn.jsdelivr.net/gh/atomiclabs/cryptocurrency-icons@1a63530/128/color/pepe.png'" alt="Pepe Hash">
                         <div class="miner-name">Pepe Hash</div>
-                        <div class="miner-sub">meme mine</div>
                     </div>
                 </div>
                 <div class="btn-wrap">
                     <a href="https://pepehash.lovable.app/?ref=088C7D97" class="mining-btn" target="_blank" rel="noopener" aria-label="Minerar em Pepe Hash" onclick="trackClick('Pepe Hash')">▶ minerar</a>
-                    <span class="compare-btn" onclick="showCompare('Pepe Hash','5.5%','PEPE','Alta')">📊 comparar ganhos</span>
                 </div>
             </div>
 
@@ -478,12 +340,10 @@
                     <div class="phone-screen">
                         <img class="miner-img" loading="lazy" decoding="async" src="https://coinblock.cx/favicon.ico" onerror="this.src='https://cdn.jsdelivr.net/gh/atomiclabs/cryptocurrency-icons@1a63530/128/color/btc.png'" alt="Coin Block">
                         <div class="miner-name">Coin Block</div>
-                        <div class="miner-sub">blockmine</div>
                     </div>
                 </div>
                 <div class="btn-wrap">
                     <a href="https://coinblock.cx/?ref=cmlz30etx0ffqlngvm7wxxa8m" class="mining-btn" target="_blank" rel="noopener" aria-label="Minerar em Coin Block" onclick="trackClick('Coin Block')">▶ minerar</a>
-                    <span class="compare-btn" onclick="showCompare('Coin Block','6.8%','BTC','Média')">📊 comparar ganhos</span>
                 </div>
             </div>
 
@@ -494,12 +354,10 @@
                     <div class="phone-screen">
                         <img class="miner-img" loading="lazy" decoding="async" src="https://skyfreecoins.com/favicon.ico" onerror="this.src='https://cdn.jsdelivr.net/gh/atomiclabs/cryptocurrency-icons@1a63530/128/color/ltc.png'" alt="SkyFreeCoins">
                         <div class="miner-name">SkyFreeCoins</div>
-                        <div class="miner-sub">free coins</div>
                     </div>
                 </div>
                 <div class="btn-wrap">
                     <a href="https://skyfreecoins.com/?r=5682" class="mining-btn" target="_blank" rel="noopener" aria-label="Minerar em SkyFreeCoins" onclick="trackClick('SkyFreeCoins')">▶ minerar</a>
-                    <span class="compare-btn" onclick="showCompare('SkyFreeCoins','5.0%','LTC','Baixa')">📊 comparar ganhos</span>
                 </div>
             </div>
 
@@ -510,12 +368,10 @@
                     <div class="phone-screen">
                         <img class="miner-img" loading="lazy" decoding="async" src="https://globalminer.lovable.app/favicon.ico" onerror="this.src='https://cdn.jsdelivr.net/gh/atomiclabs/cryptocurrency-icons@1a63530/128/color/eth.png'" alt="Global Miner">
                         <div class="miner-name">Global Miner</div>
-                        <div class="miner-sub">global pool</div>
                     </div>
                 </div>
                 <div class="btn-wrap">
                     <a href="https://globalminer.lovable.app/r/2fdc6adf" class="mining-btn" target="_blank" rel="noopener" aria-label="Minerar em Global Miner" onclick="trackClick('Global Miner')">▶ minerar</a>
-                    <span class="compare-btn" onclick="showCompare('Global Miner','7.8%','ETH','Alta')">📊 comparar ganhos</span>
                 </div>
             </div>
 
@@ -526,12 +382,10 @@
                     <div class="phone-screen">
                         <img class="miner-img" loading="lazy" decoding="async" src="https://grosats.com/favicon.ico" onerror="this.src='https://cdn.jsdelivr.net/gh/atomiclabs/cryptocurrency-icons@1a63530/128/color/btc.png'" alt="GroSats">
                         <div class="miner-name">GroSats</div>
-                        <div class="miner-sub">grow sats</div>
                     </div>
                 </div>
                 <div class="btn-wrap">
                     <a href="https://grosats.com/?r=691cc326003cacef3634" class="mining-btn" target="_blank" rel="noopener" aria-label="Minerar em GroSats" onclick="trackClick('GroSats')">▶ minerar</a>
-                    <span class="compare-btn" onclick="showCompare('GroSats','6.5%','BTC','Média')">📊 comparar ganhos</span>
                 </div>
             </div>
 
@@ -542,12 +396,10 @@
                     <div class="phone-screen">
                         <img class="miner-img" loading="lazy" decoding="async" src="https://stobix.com/favicon.ico" onerror="this.src='https://cdn.jsdelivr.net/gh/atomiclabs/cryptocurrency-icons@1a63530/128/color/btc.png'" alt="Stobix">
                         <div class="miner-name">Stobix</div>
-                        <div class="miner-sub">invite mine</div>
                     </div>
                 </div>
                 <div class="btn-wrap">
                     <a href="https://stobix.com/invite/94lr3q" class="mining-btn" target="_blank" rel="noopener" aria-label="Minerar em Stobix" onclick="trackClick('Stobix')">▶ minerar</a>
-                    <span class="compare-btn" onclick="showCompare('Stobix','5.8%','BTC','Baixa')">📊 comparar ganhos</span>
                 </div>
             </div>
 
@@ -558,12 +410,10 @@
                     <div class="phone-screen">
                         <img class="miner-img" loading="lazy" decoding="async" src="https://litecoinfarm.cc/favicon.ico" onerror="this.src='https://cdn.jsdelivr.net/gh/atomiclabs/cryptocurrency-icons@1a63530/128/color/ltc.png'" alt="LitecoinFarm">
                         <div class="miner-name">LitecoinFarm</div>
-                        <div class="miner-sub">ltc farm</div>
                     </div>
                 </div>
                 <div class="btn-wrap">
                     <a href="https://litecoinfarm.cc/r/408515461" class="mining-btn" target="_blank" rel="noopener" aria-label="Minerar em LitecoinFarm" onclick="trackClick('LitecoinFarm')">▶ minerar</a>
-                    <span class="compare-btn" onclick="showCompare('LitecoinFarm','6.1%','LTC','Média')">📊 comparar ganhos</span>
                 </div>
             </div>
 
@@ -574,12 +424,10 @@
                     <div class="phone-screen">
                         <img class="miner-img" loading="lazy" decoding="async" src="https://ltchash.vip/favicon.ico" onerror="this.src='https://cdn.jsdelivr.net/gh/atomiclabs/cryptocurrency-icons@1a63530/128/color/ltc.png'" alt="LTC Hash">
                         <div class="miner-name">LTC Hash</div>
-                        <div class="miner-sub">ltc hash</div>
                     </div>
                 </div>
                 <div class="btn-wrap">
                     <a href="https://ltchash.vip/r/286551286" class="mining-btn" target="_blank" rel="noopener" aria-label="Minerar em LTC Hash" onclick="trackClick('LTC Hash')">▶ minerar</a>
-                    <span class="compare-btn" onclick="showCompare('LTC Hash','5.9%','LTC','Baixa')">📊 comparar ganhos</span>
                 </div>
             </div>
 
@@ -590,12 +438,10 @@
                     <div class="phone-screen">
                         <img class="miner-img" loading="lazy" decoding="async" src="https://tron-ninja.xyz/favicon.ico" onerror="this.src='https://cdn.jsdelivr.net/gh/atomiclabs/cryptocurrency-icons@1a63530/128/color/trx.png'" alt="Tron Ninja">
                         <div class="miner-name">Tron Ninja</div>
-                        <div class="miner-sub">tron mine</div>
                     </div>
                 </div>
                 <div class="btn-wrap">
                     <a href="https://tron-ninja.xyz/r/105324536" class="mining-btn" target="_blank" rel="noopener" aria-label="Minerar em Tron Ninja" onclick="trackClick('Tron Ninja')">▶ minerar</a>
-                    <span class="compare-btn" onclick="showCompare('Tron Ninja','8.0%','TRX','Alta')">📊 comparar ganhos</span>
                 </div>
             </div>
 
@@ -606,12 +452,10 @@
                     <div class="phone-screen">
                         <img class="miner-img" loading="lazy" decoding="async" src="https://www.kisonic.top/favicon.ico" onerror="this.src='https://cdn.jsdelivr.net/gh/atomiclabs/cryptocurrency-icons@1a63530/128/color/btc.png'" alt="Kisonic">
                         <div class="miner-name">Kisonic</div>
-                        <div class="miner-sub">register mine</div>
                     </div>
                 </div>
                 <div class="btn-wrap">
                     <a href="https://www.kisonic.top/register?ref=QEBDS5ZZ" class="mining-btn" target="_blank" rel="noopener" aria-label="Minerar em Kisonic" onclick="trackClick('Kisonic')">▶ minerar</a>
-                    <span class="compare-btn" onclick="showCompare('Kisonic','6.3%','BTC','Média')">📊 comparar ganhos</span>
                 </div>
             </div>
 
@@ -622,12 +466,10 @@
                     <div class="phone-screen">
                         <img class="miner-img" loading="lazy" decoding="async" src="https://ryzex.org/favicon.ico" onerror="this.src='https://cdn.jsdelivr.net/gh/atomiclabs/cryptocurrency-icons@1a63530/128/color/btc.png'" alt="Ryzex">
                         <div class="miner-name">Ryzex</div>
-                        <div class="miner-sub">ryzex pool</div>
                     </div>
                 </div>
                 <div class="btn-wrap">
                     <a href="https://ryzex.org/a/47077137" class="mining-btn" target="_blank" rel="noopener" aria-label="Minerar em Ryzex" onclick="trackClick('Ryzex')">▶ minerar</a>
-                    <span class="compare-btn" onclick="showCompare('Ryzex','5.7%','BTC','Baixa')">📊 comparar ganhos</span>
                 </div>
             </div>
 
@@ -638,12 +480,10 @@
                     <div class="phone-screen">
                         <img class="miner-img" loading="lazy" decoding="async" src="https://faucetminer.cloud/favicon.ico" onerror="this.src='https://cdn.jsdelivr.net/gh/atomiclabs/cryptocurrency-icons@1a63530/128/color/btc.png'" alt="Faucet Miner">
                         <div class="miner-name">Faucet Miner</div>
-                        <div class="miner-sub">faucet cloud</div>
                     </div>
                 </div>
                 <div class="btn-wrap">
                     <a href="https://faucetminer.cloud/r/971878695" class="mining-btn" target="_blank" rel="noopener" aria-label="Minerar em Faucet Miner" onclick="trackClick('Faucet Miner')">▶ minerar</a>
-                    <span class="compare-btn" onclick="showCompare('Faucet Miner','5.2%','BTC','Baixa')">📊 comparar ganhos</span>
                 </div>
             </div>
 
@@ -654,12 +494,10 @@
                     <div class="phone-screen">
                         <img class="miner-img" loading="lazy" decoding="async" src="https://assets.coingecko.com/coins/images/29850/large/pepe-token.jpeg" onerror="this.src='https://cdn.jsdelivr.net/gh/atomiclabs/cryptocurrency-icons@1a63530/128/color/btc.png'" alt="Sir Pepe">
                         <div class="miner-name">Sir Pepe</div>
-                        <div class="miner-sub">pepe mine</div>
                     </div>
                 </div>
                 <div class="btn-wrap">
                     <a href="https://sir-pepe.site/r/515155906" class="mining-btn" target="_blank" rel="noopener" aria-label="Minerar em Sir Pepe" onclick="trackClick('Sir Pepe')">▶ minerar</a>
-                    <span class="compare-btn" onclick="showCompare('Sir Pepe','4.9%','PEPE','Alta')">📊 comparar ganhos</span>
                 </div>
             </div>
 
@@ -689,14 +527,10 @@
 
         // ===== CLICK TRACKER =====
         const clickData = {};
-        var liveBaseClicks = 347 + Math.floor(Math.random()*100);
 
         window.trackClick = function(name){
             clickData[name]=(clickData[name]||0)+1;
             updateTrackerPanel();
-            const total=Object.values(clickData).reduce((a,b)=>a+b,0);
-            const lc=document.getElementById('liveClicks');
-            if(lc) lc.textContent=liveBaseClicks+total;
         };
 
         function updateTrackerPanel(){
@@ -705,68 +539,6 @@
             list.innerHTML=Object.entries(clickData).sort((a,b)=>b[1]-a[1]).slice(0,8)
                 .map(([n,c])=>`<div class="tracker-item"><span>${n}</span><span class="tracker-count">${c}</span></div>`).join('');
         }
-
-        // ===== MODAL COMPARAR =====
-        window.showCompare = function(name,rate,coin,volatility){
-            const daily=(parseFloat(rate)/365).toFixed(3);
-            const monthly=(parseFloat(rate)/12).toFixed(2);
-            const vc=volatility==='Alta'?'#ff9966':volatility==='Média'?'#ffcc44':'#44cc88';
-            document.getElementById('compareContent').innerHTML=`
-                <div style="margin-bottom:1rem;font-size:1.2rem;font-weight:700;font-family:'Rajdhani',sans-serif;color:white;text-transform:uppercase;">${name}</div>
-                <div class="compare-grid">
-                    <div class="compare-cell"><div class="compare-cell-label">ANUAL</div><div class="compare-cell-val">${rate}</div></div>
-                    <div class="compare-cell"><div class="compare-cell-label">AO MÊS</div><div class="compare-cell-val">${monthly}%</div></div>
-                    <div class="compare-cell"><div class="compare-cell-label">AO DIA</div><div class="compare-cell-val blue">${daily}%</div></div>
-                    <div class="compare-cell"><div class="compare-cell-label">MOEDA</div><div class="compare-cell-val blue">${coin}</div></div>
-                </div>
-                <div style="margin-top:.8rem;font-size:.75rem;color:#9bbdf0;">Volatilidade: <span style="color:${vc};font-weight:700;">${volatility}</span></div>
-                <div style="margin-top:.4rem;font-size:.68rem;color:rgba(155,189,240,0.5);">* Valores estimados. Rendimentos variáveis.</div>`;
-            document.getElementById('compareModal').style.display='flex';
-        };
-        document.getElementById('compareModal').addEventListener('click',function(e){ if(e.target===this) this.style.display='none'; });
-
-        // ===== LIVE BAR =====
-        const liveCountEl=document.getElementById('liveCount');
-        const liveEarnedEl=document.getElementById('liveEarned');
-        const liveClicksEl=document.getElementById('liveClicks');
-        let liveCount=89+Math.floor(Math.random()*60);
-        let liveEarned=1240+Math.floor(Math.random()*300);
-
-        function updateLiveBar(){
-            liveCount+=Math.floor(Math.random()*3)-1;
-            liveCount=Math.max(60,liveCount);
-            if(Math.random()>0.6) liveEarned+=Math.floor(Math.random()*4);
-            if(liveCountEl) liveCountEl.textContent=liveCount;
-            if(liveEarnedEl) liveEarnedEl.textContent=liveEarned.toFixed(1);
-            const t=Object.values(clickData).reduce((a,b)=>a+b,0);
-            if(liveClicksEl) liveClicksEl.textContent=liveBaseClicks+t;
-        }
-        setInterval(updateLiveBar,5000); updateLiveBar();
-
-        // ===== TOASTS =====
-        const names=['Carlos','Maria','João','Ana','Pedro','Luisa','Rafael','Beatriz','Lucas','Fernanda','Diego','Juliana'];
-        const mlist=['Earn TRX','Panda USDT','Global Miner','Tron Ninja','USDTx','GroSats','LTC Hash'];
-        const acts=[
-            (n,m)=>`<strong>${n}</strong> sacou ${(Math.random()*15+3).toFixed(1)} USDT via ${m}`,
-            (n,m)=>`<strong>${n}</strong> iniciou mineração em ${m}`,
-            (n,m)=>`<strong>${n}</strong> indicou amigo no ${m}`,
-            (n,m)=>`<strong>${n}</strong> recebeu bônus em ${m}`,
-        ];
-        const tc=document.getElementById('toastContainer');
-
-        function showToast(){
-            const n=names[Math.floor(Math.random()*names.length)];
-            const m=mlist[Math.floor(Math.random()*mlist.length)];
-            const a=acts[Math.floor(Math.random()*acts.length)];
-            const t=document.createElement('div');
-            t.className='toast';
-            t.innerHTML=`<span class="toast-icon">💸</span><span class="toast-text">${a(n,m)}</span>`;
-            tc.appendChild(t);
-            requestAnimationFrame(()=>requestAnimationFrame(()=>t.classList.add('show')));
-            setTimeout(()=>{ t.classList.remove('show'); setTimeout(()=>t.remove(),450); },4000);
-            while(tc.children.length>2) tc.removeChild(tc.firstChild);
-        }
-        setTimeout(showToast,2000); setInterval(showToast,7000);
 
         // ===== PARTÍCULAS DE FUNDO =====
         const canvas=document.getElementById('particle-canvas');
@@ -826,7 +598,7 @@
         window.addEventListener('resize',resizeC);
         resizeC();animate();
 
-        // ===== TRAIL SIMPLES: CAUDA LEVE + PARTÍCULAS QUE SOMEM =====
+        // ===== TRAIL: PARTÍCULAS QUE SOMEM =====
         const tCanvas=document.createElement('canvas');
         tCanvas.style.cssText='position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9998;';
         document.body.appendChild(tCanvas);
@@ -835,7 +607,6 @@
         function resizeT(){ tCanvas.width=window.innerWidth;tCanvas.height=window.innerHeight; }
         window.addEventListener('resize',resizeT);resizeT();
 
-        // Partículas que somem
         const dots=[];
         let lastMx=0,lastMy=0;
 
@@ -856,8 +627,6 @@
 
         function trailLoop(){
             tCtx.clearRect(0,0,tCanvas.width,tCanvas.height);
-
-            // Atualiza e desenha partículas
             for(let i=dots.length-1;i>=0;i--){
                 const d=dots[i];
                 d.x+=d.vx; d.y+=d.vy;
@@ -874,19 +643,16 @@
         }
         trailLoop();
 
-        // Mouse: spawna dots ao mover
         document.addEventListener('mousemove',(e)=>{
             const dist=Math.hypot(e.clientX-lastMx,e.clientY-lastMy);
             if(dist<1) return;
             lastMx=e.clientX;lastMy=e.clientY;
             spawnDots(e.clientX,e.clientY);
-            // FIX Safari: influência nas partículas de fundo
             for(let p of particles){
                 if(Math.random()>.97){ p.vx+=dist*.0008; p.vy+=dist*.0004; }
             }
         });
 
-        // Touch - CORRIGIDO: agora não trava mais o deslize
         document.addEventListener('touchmove',(e)=>{
             if(!e.touches[0]) return;
             const tx=e.touches[0].clientX,ty=e.touches[0].clientY;
@@ -894,8 +660,7 @@
             if(dist<3) return;
             lastMx=tx;lastMy=ty;
             spawnDots(tx,ty);
-            // NÃO chamamos mais e.preventDefault() para não travar o scroll
-        },{passive:true}); // passive:true permite o scroll
+        },{passive:true});
 
         document.addEventListener('touchend',()=>{ dots.length=0; });
         document.addEventListener('touchcancel',()=>{ dots.length=0; });
