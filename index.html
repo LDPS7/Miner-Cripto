@@ -121,7 +121,7 @@
             font-family: 'Space Mono', monospace; font-size: 0.9rem;
             color: #00ff88; background: rgba(0,10,20,0.7);
             border: 1px solid rgba(0,255,136,0.5); border-radius: 8px;
-            padding: 2px 8px; z-index: 3; pointer-events: none;
+            padding: 2px 8px; z-index 3; pointer-events: none;
             letter-spacing: 0px; font-weight: 700;
         }
 
@@ -186,7 +186,29 @@
             font-family: 'Rajdhani', sans-serif; text-transform: uppercase;
         }
 
-        .btn-wrap { width: 100%; margin-top: 14px; }
+        /* DESCRIÇÃO FORA DO QUADRO, ENTRE O MOCK E O BOTÃO */
+        .miner-desc-box {
+            width: 100%;
+            margin: 10px 0 6px 0;
+            padding: 8px 12px;
+            background: rgba(0, 20, 50, 0.5);
+            border-left: 2px solid var(--blue-accent);
+            border-radius: 8px;
+            text-align: center;
+            font-size: 0.78rem;
+            color: rgba(200, 225, 255, 0.85);
+            line-height: 1.3;
+            font-weight: 400;
+            letter-spacing: 0.2px;
+            min-height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+        }
+
+        .btn-wrap { width: 100%; margin-top: 4px; }
 
         .mining-btn {
             display: inline-block; width: 100%; padding: 14px 10px;
@@ -222,6 +244,7 @@
             .phone-card { flex: 0 1 300px; max-width: 300px; }
             .miner-img { width: 72px; height: 72px; }
             .miner-name { font-size: 1.4rem; }
+            .miner-desc-box { font-size: 0.7rem; min-height: 34px; padding: 6px 10px; }
         }
 
         @media (max-width: 380px) { .phone-card { min-width: 240px; } }
@@ -254,6 +277,7 @@
                         <div class="miner-name">Nuggmi</div>
                     </div>
                 </div>
+                <div class="miner-desc-box">Plataforma simples, com boas taxas e sem necessidade de equipamentos próprios.</div>
                 <div class="btn-wrap">
                     <a href="https://nuggmi.com/ref/lucianoldps" class="mining-btn" target="_blank" rel="noopener" onclick="trackClick('Nuggmi')">▶ minerar</a>
                 </div>
@@ -268,6 +292,7 @@
                         <div class="miner-name">CloudMine</div>
                     </div>
                 </div>
+                <div class="miner-desc-box">Estável e segura, basta escolher o contrato e minerar sem custos extras.</div>
                 <div class="btn-wrap">
                     <a href="https://cloudminecrypto.com/?invite_code=az0r3J5lpXYkQPZE" class="mining-btn" target="_blank" rel="noopener" onclick="trackClick('CloudMine Crypto')">▶ minerar</a>
                 </div>
@@ -282,6 +307,7 @@
                         <div class="miner-name">Bitdrap</div>
                     </div>
                 </div>
+                <div class="miner-desc-box">Comece grátis, suporte a 19 moedas, saques rápidos e sistema de batalhas PvP.</div>
                 <div class="btn-wrap">
                     <a href="https://bitdrap.com/?invitedby=34633446" class="mining-btn" target="_blank" rel="noopener" onclick="trackClick('Bitdrap')">▶ minerar</a>
                 </div>
@@ -297,6 +323,7 @@
                         <div class="miner-name">CloudMiner</div>
                     </div>
                 </div>
+                <div class="miner-desc-box">Interface intuitiva, integração com FaucetPay e mais de 50 mil usuários.</div>
                 <div class="btn-wrap">
                     <a href="https://cloudminer.lovable.app?ref=RX9B89BC" class="mining-btn" target="_blank" rel="noopener" onclick="trackClick('CloudMiner')">▶ minerar</a>
                 </div>
@@ -311,6 +338,7 @@
                         <div class="miner-name">FoxChain</div>
                     </div>
                 </div>
+                <div class="miner-desc-box">Cadastro simples com e-mail da FaucetPay, foco em segurança e praticidade.</div>
                 <div class="btn-wrap">
                     <a href="https://foxchain.lovable.app/auth?tab=signup&ref=041b2db1" class="mining-btn" target="_blank" rel="noopener" onclick="trackClick('FoxChain')">▶ minerar</a>
                 </div>
@@ -325,6 +353,7 @@
                         <div class="miner-name">DogePlus</div>
                     </div>
                 </div>
+                <div class="miner-desc-box">Especializada em Dogecoin, com rendimentos otimizados para essa moeda.</div>
                 <div class="btn-wrap">
                     <a href="https://dogeplus.live/r/496687641" class="mining-btn" target="_blank" rel="noopener" onclick="trackClick('DogePlus')">▶ minerar</a>
                 </div>
@@ -339,6 +368,7 @@
                         <div class="miner-name">FreeHash</div>
                     </div>
                 </div>
+                <div class="miner-desc-box">Plano gratuito para começar sem gastos, saques direto para sua carteira.</div>
                 <div class="btn-wrap">
                     <a href="https://freehash.lovable.app/cadastro?ref=199c54b9" class="mining-btn" target="_blank" rel="noopener" onclick="trackClick('FreeHash')">▶ minerar</a>
                 </div>
@@ -353,6 +383,7 @@
                         <div class="miner-name">GoldBlackFree</div>
                     </div>
                 </div>
+                <div class="miner-desc-box">Mineração + recompensas diárias, pagamentos automáticos pela FaucetPay.</div>
                 <div class="btn-wrap">
                     <a href="https://goldblackfree.lovable.app/signup?ref=762152a8" class="mining-btn" target="_blank" rel="noopener" onclick="trackClick('GoldBlackFree')">▶ minerar</a>
                 </div>
@@ -367,6 +398,7 @@
                         <div class="miner-name">TronXMiner</div>
                     </div>
                 </div>
+                <div class="miner-desc-box">Focado em TRON, cadastro rápido só com endereço da carteira e suporte 24h.</div>
                 <div class="btn-wrap">
                     <a href="https://tronxminer.com/r/897652383" class="mining-btn" target="_blank" rel="noopener" onclick="trackClick('TronXMiner')">▶ minerar</a>
                 </div>
@@ -381,6 +413,7 @@
                         <div class="miner-name">CoinGrinding</div>
                     </div>
                 </div>
+                <div class="miner-desc-box">Minerador inicial grátis, recompensas diárias, competições e mercado entre usuários.</div>
                 <div class="btn-wrap">
                     <a href="https://coingrinding.com/ref/DBA76E84" class="mining-btn" target="_blank" rel="noopener" onclick="trackClick('CoinGrinding')">▶ minerar</a>
                 </div>
